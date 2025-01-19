@@ -44,7 +44,7 @@ const Hero = () => {
 					<img
 						key={image.id}
 						src={CircleFillIcon}
-						id={image.id}
+						id={String(image.id)}
 						alt={`pagination-icon-${image.id}`}
 						onClick={() => handlePaginationClick(image.id)}
 						style={{
