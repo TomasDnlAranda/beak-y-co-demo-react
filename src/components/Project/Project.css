@@ -1,0 +1,303 @@
+.project {
+	padding: 35px 20px;
+}
+
+.slogan-home {
+	padding: 25px 0;
+}
+
+.slogan-home__left {
+	display: none;
+}
+
+.slogan-home__right {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.slogan-home__right h2 {
+	width: 100%;
+	margin-bottom: 6vw;
+	font-size: 5.3vw;
+	line-height: 6vw;
+	text-align: center;
+}
+
+.slogan-home__right p {
+	margin-bottom: 5.5vw;
+	font-size: 3.4vw;
+	line-height: 4.8vw;
+	text-align: center;
+}
+.slogan-home__right p span {
+	font-weight: bolder;
+}
+.slogan-home__right button {
+	cursor: pointer;
+	width: 30vw;
+	height: 9.6vw;
+	font-size: 3vw;
+	border-radius: 2vw;
+	color: #fff;
+	background-color: #19354a;
+	border: 1px solid #19354a;
+}
+
+.series-home__arrow-left {
+	height: 7vw;
+	margin: 0 3.5vw 0 0;
+}
+
+.series-home__arrow-right {
+	height: 7vw;
+	margin: 0 0 0 3.5vw;
+}
+
+.series-home__description {
+	font-size: 3vw;
+	line-height: 4.5vw;
+}
+
+.series-home__description span {
+	font-weight: bolder;
+}
+
+.series-home__right {
+	align-items: end;
+	text-align: end;
+}
+
+.series-home__title {
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.series-home__logo-aurian {
+	height: 3.7vw;
+}
+
+.series-home__logo-lelis {
+	height: 9.5vw;
+}
+
+.series-box {
+	width: 100%;
+	height: 88vw;
+	background-position: center;
+	background-size: cover;
+	padding: 15px;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	background-size: 100%;
+	transition: background-size 1s ease;
+	text-shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.1);
+	cursor: pointer;
+}
+
+.series-box:hover {
+	background-size: 130%;
+}
+
+.series-home__title img {
+	filter: drop-shadow(3px 3px 8px rgb(0, 0, 0));
+}
+
+.series-box:hover .series-home__arrow-right {
+	transform: translateX(20px);
+	transition: all 1s ease;
+}
+.series-box .series-home__arrow-right {
+	transform: translateX(0);
+	transition: all 1s ease;
+}
+
+.series-box:hover .series-home__arrow-left {
+	transform: translateX(-20px);
+	transition: all 1s ease;
+}
+.series-box .series-home__arrow-left {
+	transform: translateX(0);
+	transition: all 1s ease;
+}
+
+@media (min-width: 900px) {
+	.slogan-home__left {
+		display: block;
+	}
+	.slogan-home__left img {
+		border-radius: 15px;
+		width: 100%;
+	}
+
+	.slogan-home {
+		display: flex;
+		justify-content: space-around;
+		padding: 5.5vw 9.5vw 5.5vw 8.5vw;
+	}
+
+	.slogan-home__left {
+		width: 40%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.slogan-home__right {
+		width: 40%;
+		align-items: start;
+		justify-content: center;
+	}
+
+	.slogan-home__right h2 {
+		width: 32vw;
+		margin-bottom: 2.1vw;
+		font-size: 2.15vw;
+		line-height: 2.6vw;
+		text-align: start;
+	}
+
+	.slogan-home__right p {
+		margin-bottom: 2.1vw;
+		font-size: 1.01vw;
+		line-height: 1.5vw;
+		text-align: start;
+	}
+
+	.slogan-home__right button {
+		width: 9vw;
+		height: 3.2vw;
+		font-size: 1.01vw;
+		border-radius: 0.6vw;
+	}
+	.series-home {
+		display: flex;
+	}
+
+	.series-box {
+		height: 45vw;
+		padding: 6.8vw 3.7vw;
+	}
+
+	.series-home__title {
+		margin-bottom: 1.5vw;
+	}
+	.series-home__logo-aurian {
+		height: 1.9vw;
+	}
+
+	.series-home__logo-lelis {
+		height: 4.5vw;
+	}
+
+	.series-home__description {
+		font-size: 1.2vw;
+		line-height: 1.5vw;
+	}
+
+	.series-home__arrow-left {
+		height: 3vw;
+		margin: 0 1.5vw 0 0;
+	}
+
+	.series-home__arrow-right {
+		height: 3vw;
+		margin: 0 0 0 1.5vw;
+	}
+
+	.series-home__right {
+		border-top-right-radius: 2.5vw;
+		border-bottom-right-radius: 2.5vw;
+	}
+	.series-home__left {
+		border-top-left-radius: 2.5vw;
+		border-bottom-left-radius: 2.5vw;
+	}
+}
+
+@media (min-width: 1300px) {
+	.project {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.series-box {
+		width: 600px;
+		height: 600px;
+	}
+
+	.series-home__title {
+		margin-bottom: 1.5vw;
+	}
+	.series-home__logo-aurian {
+		height: 30px;
+	}
+
+	.series-home__logo-lelis {
+		height: 60px;
+	}
+
+	.series-home__description {
+		font-size: 20px;
+		line-height: 28px;
+	}
+
+	.series-home__arrow-left {
+		height: 45px;
+		margin: 0 25px 0 0;
+	}
+
+	.series-home__arrow-right {
+		height: 45px;
+		margin: 0 0 0 25px;
+	}
+
+	.series-home__right {
+		border-top-right-radius: 2.5vw;
+		border-bottom-right-radius: 2.5vw;
+	}
+	.series-home__left {
+		border-top-left-radius: 2.5vw;
+		border-bottom-left-radius: 2.5vw;
+	}
+
+	.slogan-home {
+		display: flex;
+		justify-content: space-around;
+		padding: 50px 100px 50px 80px;
+	}
+
+	.slogan-home__left {
+		width: 400px;
+		margin-right: 100px;
+	}
+
+	.slogan-home__right {
+		width: 500px;
+	}
+
+	.slogan-home__right h2 {
+		width: 400px;
+		margin-bottom: 16px;
+		font-size: 30px;
+		line-height: 35px;
+	}
+
+	.slogan-home__right p {
+		margin-bottom: 25px;
+		font-size: 18px;
+		line-height: 25px;
+		text-align: start;
+	}
+
+	.slogan-home__right button {
+		width: 140px;
+		height: 45px;
+		font-size: 18px;
+		border-radius: 15px;
+	}
+}
