@@ -166,28 +166,30 @@
 	}
 
 	.slogan-home__right h2 {
-		width: 32vw;
+		width: 42vw;
 		margin-bottom: 2.1vw;
-		font-size: 2.15vw;
+		font-size: 2.7vw;
 		line-height: 2.6vw;
 		text-align: start;
 	}
 
 	.slogan-home__right p {
 		margin-bottom: 2.1vw;
-		font-size: 1.01vw;
-		line-height: 1.5vw;
+		font-size: 1.9vw;
+		width: 42vw;
+		line-height: 2.4vw;
 		text-align: start;
 	}
 
 	.slogan-home__right a {
-		width: 9vw;
-		height: 3.2vw;
-		font-size: 1.01vw;
+		width: 15vw;
+		height: 5.2vw;
+		font-size: 1.8vw;
 		border-radius: 0.6vw;
 	}
 	.series-home {
 		display: flex;
+		margin: 75px 0;
 	}
 
 	.series-box {
@@ -293,16 +295,16 @@
 	}
 
 	.slogan-home__right h2 {
-		width: 400px;
+		width: 550px;
 		margin-bottom: 16px;
-		font-size: 30px;
-		line-height: 35px;
+		font-size: 38px;
+		line-height: 50px;
 	}
 
 	.slogan-home__right p {
 		margin-bottom: 25px;
-		font-size: 18px;
-		line-height: 25px;
+		font-size: 22px;
+		line-height: 28px;
 		text-align: start;
 	}
 

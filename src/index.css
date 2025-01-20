@@ -28,3 +28,7 @@
 	background-color: #c3ced9;
 	color: #000;
 }
+
+body {
+	overflow-x: hidden;
+}

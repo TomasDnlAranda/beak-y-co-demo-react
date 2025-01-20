@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import LinkedInIcon from '../../assets/icons/social_li_1.svg';
 import InstagramIcon from '../../assets/icons/social_ig_1.svg';
@@ -5,9 +6,17 @@ import FacebookIcon from '../../assets/icons/social_fb_1.svg';
 import YoutubeIcon from '../../assets/icons/social_yt_1.svg';
 import logoCompany from '../../assets/images/logos/logo.svg';
 import ListIcon from '../../assets/icons/list.svg';
+import ExitIcon from '../../assets/icons/exit.svg';
 import './Header.css';
+import Sidebar from '../Sidebar/Sidebar';
 
 const Header = () => {
+	const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+	const toggleSidebar = () => {
+		setIsSidebarOpen(!isSidebarOpen);
+	};
+
 	return (
 		<header className="header">
 			<div className="header__banner">
@@ -22,7 +31,7 @@ const Header = () => {
 			<nav className="header__nav">
 				<div className="header__nav-left">
 					<Link to="/">
-						<img src={logoCompany} />
+						<img src={logoCompany} alt="Logo" />
 					</Link>
 				</div>
 				<div className="header__nav-desktop">
@@ -40,35 +49,40 @@ const Header = () => {
 							href="https://www.linkedin.com/company/baekyco/?viewAsMember=true"
 							target="blank"
 						>
-							<img src={LinkedInIcon} />
+							<img src={LinkedInIcon} alt="LinkedIn" />
 						</a>
 						<a
 							className="header__nav-right-icon"
 							href="https://www.facebook.com/baekyco/"
 							target="blank"
 						>
-							<img src={FacebookIcon} />
+							<img src={FacebookIcon} alt="Facebook" />
 						</a>
 						<a
 							className="header__nav-right-icon"
 							href="https://www.instagram.com/baekyco/"
 							target="blank"
 						>
-							<img src={InstagramIcon} />
+							<img src={InstagramIcon} alt="Instagram" />
 						</a>
 						<a
 							className="header__nav-right-icon"
 							href="https://www.youtube.com/@baekyco"
 							target="blank"
 						>
-							<img src={YoutubeIcon} />
+							<img src={YoutubeIcon} alt="YouTube" />
 						</a>
 					</div>
 				</div>
 				<nav className="header__nav-mobile">
-					<img src={ListIcon} />
+					{isSidebarOpen ? (
+						<img src={ExitIcon} alt="Menu" onClick={toggleSidebar} />
+					) : (
+						<img src={ListIcon} alt="Menu" onClick={toggleSidebar} />
+					)}
 				</nav>
 			</nav>
+			<Sidebar setIsSidebarOpen={setIsSidebarOpen} isSidebarOpen={isSidebarOpen} />
 		</header>
 	);
 };
