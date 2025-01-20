@@ -24,6 +24,7 @@ const Hero = () => {
 	const [currentSlide, setCurrentSlide] = useState(1);
 	const [fade, setFade] = useState(false);
 	const [isChanging, setIsChanging] = useState(false);
+	const [imageLoaded, setImageLoaded] = useState(false); // Estado para saber si las imágenes están cargadas
 
 	const handlePaginationClick = (id: number) => {
 		if (isChanging) return;
@@ -33,16 +34,33 @@ const Hero = () => {
 		setCurrentSlide(id);
 	};
 
-	const handleImageLoad = () => {
-		setFade(true);
-	};
-
 	useEffect(() => {
 		AOS.init({
 			duration: 1000,
 			easing: 'ease-in-out',
 		});
 	}, []);
+
+	// Pre-cargar las imágenes al montar el componente
+	useEffect(() => {
+		const loadImages = slide.map((image) => {
+			const img = new Image();
+			img.src = image.img;
+			return new Promise<void>((resolve, reject) => {
+				img.onload = () => resolve();
+				img.onerror = () => reject(new Error(`Failed to load image: ${image.img}`));
+			});
+		});
+
+		// Esperar que todas las imágenes se carguen antes de cambiar el estado
+		Promise.all(loadImages)
+			.then(() => {
+				setImageLoaded(true); // Cuando todas las imágenes se cargan correctamente
+			})
+			.catch((error) => {
+				console.error(error); // Manejo de errores
+			});
+	}, []); // Solo se ejecuta cuando el componente se monta
 
 	useEffect(() => {
 		setFade(false);
@@ -64,11 +82,13 @@ const Hero = () => {
 
 	return (
 		<div className="hero">
-			<div
-				className={`hero__background ${fade ? 'visible' : ''}`}
-				style={{ backgroundImage: `url(${currentImage})` }}
-				onLoad={handleImageLoad}
-			></div>
+			{/* Mostrar la imagen de fondo solo cuando las imágenes estén cargadas */}
+			{imageLoaded && (
+				<div
+					className={`hero__background ${fade ? 'visible' : ''}`}
+					style={{ backgroundImage: `url(${currentImage})` }}
+				></div>
+			)}
 
 			<h1 className="hero__title" data-aos="fade-up" data-aos-duration="1000">
 				Desarrollos Inmobiliarios en Buenos Aires
