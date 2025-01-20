@@ -25,6 +25,7 @@
 	background-position: center;
 	filter: brightness(60%);
 	z-index: -1;
+	transition: background-image 0.5s ease-in-out; /* Transición de opacidad */
 }
 .hero__title {
 	width: 75vw;

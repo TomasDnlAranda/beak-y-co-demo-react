@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CircleFillIcon from '../../assets/icons/circle-fill.svg';
 import HOME_SLIDE_1 from '../../assets/images/hero/home_slide_1.webp';
 import HOME_SLIDE_2 from '../../assets/images/hero/home_slide_2.webp';
@@ -19,17 +19,42 @@ const slide = [
 
 const Hero = () => {
 	const [currentSlide, setCurrentSlide] = useState(1);
+	const [fade, setFade] = useState(false); // Estado para controlar el fade
+	const [isChanging, setIsChanging] = useState(false); // Estado para bloquear cambios de imagen durante la animación
 
 	const handlePaginationClick = (id: number) => {
+		if (isChanging) return;
+
+		setFade(false);
+		setIsChanging(true);
 		setCurrentSlide(id);
 	};
+
+	useEffect(() => {
+		setFade(false);
+		const timeout = setTimeout(() => {
+			setFade(true);
+		}, 100);
+
+		return () => clearTimeout(timeout);
+	}, [currentSlide]);
+
+	useEffect(() => {
+		const timeout = setTimeout(() => {
+			setIsChanging(false);
+		}, 500);
+		return () => clearTimeout(timeout);
+	}, [isChanging]);
 
 	const currentImage = slide.find((image) => image.id === currentSlide)?.img;
 
 	return (
 		<div className="hero">
-			{/* Contenedor para la imagen de fondo */}
-			<div className="hero__background" style={{ backgroundImage: `url(${currentImage})` }}></div>
+			<div
+				className={`hero__background ${fade ? 'visible' : ''}`}
+				style={{ backgroundImage: `url(${currentImage})` }}
+			></div>
+
 			<h1 className="hero__title">Desarrollos Inmobiliarios en Buenos Aires</h1>
 			<p className="hero__subtitle">
 				Con una visión realista y funcional, acompañamos a nuestros clientes e inversores en todo el
@@ -39,6 +64,7 @@ const Hero = () => {
 				<button className="hero-btn-1">Contacto</button>
 				<button className="hero-btn-2">Ver Mas</button>
 			</div>
+
 			<div className="hero__pagination">
 				{slide.map((image) => (
 					<img
