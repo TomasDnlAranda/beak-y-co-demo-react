@@ -44,6 +44,12 @@
 	border: 1px solid #19354a;
 }
 
+.slogan-home__right button:hover {
+	background-color: #808a80;
+	color: #fff;
+	border: 1px solid #808a80;
+}
+
 .series-home__arrow-left {
 	height: 7vw;
 	margin: 0 3.5vw 0 0;

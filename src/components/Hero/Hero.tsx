@@ -7,6 +7,8 @@ import HOME_SLIDE_4 from '../../assets/images/hero/home_slide_4.webp';
 import HOME_SLIDE_5 from '../../assets/images/hero/home_slide_5.webp';
 import HOME_SLIDE_6 from '../../assets/images/hero/home_slide_6.webp';
 import './Hero.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const slide = [
 	{ id: 1, img: HOME_SLIDE_1 },
@@ -19,8 +21,8 @@ const slide = [
 
 const Hero = () => {
 	const [currentSlide, setCurrentSlide] = useState(1);
-	const [fade, setFade] = useState(false); // Estado para controlar el fade
-	const [isChanging, setIsChanging] = useState(false); // Estado para bloquear cambios de imagen durante la animación
+	const [fade, setFade] = useState(false);
+	const [isChanging, setIsChanging] = useState(false);
 
 	const handlePaginationClick = (id: number) => {
 		if (isChanging) return;
@@ -29,6 +31,13 @@ const Hero = () => {
 		setIsChanging(true);
 		setCurrentSlide(id);
 	};
+
+	useEffect(() => {
+		AOS.init({
+			duration: 1000,
+			easing: 'ease-in-out',
+		});
+	}, []);
 
 	useEffect(() => {
 		setFade(false);
@@ -55,17 +64,19 @@ const Hero = () => {
 				style={{ backgroundImage: `url(${currentImage})` }}
 			></div>
 
-			<h1 className="hero__title">Desarrollos Inmobiliarios en Buenos Aires</h1>
-			<p className="hero__subtitle">
+			<h1 className="hero__title" data-aos="fade-up" data-aos-duration="1000">
+				Desarrollos Inmobiliarios en Buenos Aires
+			</h1>
+			<p className="hero__subtitle" data-aos="fade-up" data-aos-duration="2000">
 				Con una visión realista y funcional, acompañamos a nuestros clientes e inversores en todo el
 				proceso para garantizarles un hogar confortable y de atractiva rentabilidad.
 			</p>
-			<div className="hero__container-btn">
+			<div className="hero__container-btn" data-aos="fade-up" data-aos-duration="3000">
 				<button className="hero-btn-1">Contacto</button>
 				<button className="hero-btn-2">Ver Mas</button>
 			</div>
 
-			<div className="hero__pagination">
+			<div className="hero__pagination" data-aos="fade-up" data-aos-duration="4000">
 				{slide.map((image) => (
 					<img
 						key={image.id}

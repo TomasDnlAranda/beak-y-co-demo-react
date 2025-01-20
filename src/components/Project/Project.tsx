@@ -8,15 +8,25 @@ import LOGO_LELIS from '../../assets/icons/logo_lelis.svg';
 
 import CIRC_FLECHA_DER from '../../assets/icons/circ_flecha_der.svg';
 import CIRC_FLECHA_IZQ from '../../assets/icons/circ_flecha_izq.svg';
+import { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Project = () => {
+	useEffect(() => {
+		AOS.init({
+			duration: 1000,
+			easing: 'ease-in-out',
+		});
+	}, []);
+
 	return (
 		<div className="project">
 			<div className="slogan-home">
-				<div className="slogan-home__left">
+				<div className="slogan-home__left" data-aos="fade-right">
 					<img src={TORRE_BEAK} />
 				</div>
-				<div className="slogan-home__right">
+				<div className="slogan-home__right" data-aos="fade-left">
 					<h2>Comprometidos con el habitar de las personas</h2>
 					<p>
 						<span>
@@ -28,7 +38,7 @@ const Project = () => {
 					<button>Ver más</button>
 				</div>
 			</div>
-			<div className="series-home">
+			<div className="series-home" data-aos="fade-up">
 				<div
 					className="series-home__left series-box"
 					style={{ backgroundImage: `url(${SERIE_HOME_AURIAN})` }}

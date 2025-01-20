@@ -25,7 +25,7 @@
 	background-position: center;
 	filter: brightness(60%);
 	z-index: -1;
-	transition: background-image 0.5s ease-in-out; /* Transición de opacidad */
+	transition: background-image 0.5s ease-in-out;
 }
 .hero__title {
 	width: 75vw;
@@ -138,6 +138,7 @@
 		padding: 20px 70px;
 		height: max-content;
 		margin-top: 20px;
+		border-radius: 18px;
 	}
 
 	.hero-btn-2 {
@@ -146,5 +147,6 @@
 		padding: 20px 70px;
 		height: max-content;
 		margin-top: 20px;
+		border-radius: 18px;
 	}
 }
