@@ -24,7 +24,7 @@ const Hero = () => {
 	const [currentSlide, setCurrentSlide] = useState(1);
 	const [fade, setFade] = useState(false);
 	const [isChanging, setIsChanging] = useState(false);
-	const [imageLoaded, setImageLoaded] = useState(false); // Estado para saber si las imágenes están cargadas
+	const [imageLoaded, setImageLoaded] = useState(false);
 
 	const handlePaginationClick = (id: number) => {
 		if (isChanging) return;
@@ -41,7 +41,6 @@ const Hero = () => {
 		});
 	}, []);
 
-	// Pre-cargar las imágenes al montar el componente
 	useEffect(() => {
 		const loadImages = slide.map((image) => {
 			const img = new Image();
@@ -52,15 +51,14 @@ const Hero = () => {
 			});
 		});
 
-		// Esperar que todas las imágenes se carguen antes de cambiar el estado
 		Promise.all(loadImages)
 			.then(() => {
-				setImageLoaded(true); // Cuando todas las imágenes se cargan correctamente
+				setImageLoaded(true);
 			})
 			.catch((error) => {
-				console.error(error); // Manejo de errores
+				console.error(error);
 			});
-	}, []); // Solo se ejecuta cuando el componente se monta
+	}, []);
 
 	useEffect(() => {
 		setFade(false);
@@ -82,7 +80,6 @@ const Hero = () => {
 
 	return (
 		<div className="hero">
-			{/* Mostrar la imagen de fondo solo cuando las imágenes estén cargadas */}
 			{imageLoaded && (
 				<div
 					className={`hero__background ${fade ? 'visible' : ''}`}
