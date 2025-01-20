@@ -11,6 +11,7 @@ import CIRC_FLECHA_IZQ from '../../assets/icons/circ_flecha_izq.svg';
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 
 const Project = () => {
 	useEffect(() => {
@@ -35,11 +36,12 @@ const Project = () => {
 						haciendo hincapié en el proceso constructivo; desde la optimización de recursos humanos,
 						materiales y económicos.
 					</p>
-					<button>Ver más</button>
+					<Link to="desarrollos">Ver más</Link>
 				</div>
 			</div>
 			<div className="series-home" data-aos="fade-up">
-				<div
+				<Link
+					to="/desarrollos/serie_aurian"
 					className="series-home__left series-box"
 					style={{ backgroundImage: `url(${SERIE_HOME_AURIAN})` }}
 				>
@@ -55,8 +57,9 @@ const Project = () => {
 						Combina vanguardia tecnológica y diseño innovador para hogares preparados para el
 						futuro.
 					</p>
-				</div>
-				<div
+				</Link>
+				<Link
+					to="/desarrollos/serie_lelis"
 					className="series-home__right series-box"
 					style={{ backgroundImage: `url(${SERIE_HOME_LELIS})` }}
 				>
@@ -72,7 +75,7 @@ const Project = () => {
 						y las nuevas formas de vivir, desarrollando espacios innovadores y estéticamente
 						refinado.
 					</p>
-				</div>
+				</Link>
 			</div>
 		</div>
 	);

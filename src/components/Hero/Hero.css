@@ -84,7 +84,21 @@
 .hero__pagination {
 	display: flex;
 	margin-top: 40px;
-	gap: 5px;
+	gap: 8px;
+}
+
+.hero-btn a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.hero__container-btn {
+	display: flex;
+	text-decoration: none;
+}
+
+.hero__container-btn a {
+	text-decoration: none;
 }
 
 @media (min-width: 850px) {

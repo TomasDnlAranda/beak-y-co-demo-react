@@ -9,6 +9,7 @@ import HOME_SLIDE_6 from '../../assets/images/hero/home_slide_6.webp';
 import './Hero.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 
 const slide = [
 	{ id: 1, img: HOME_SLIDE_1 },
@@ -72,8 +73,12 @@ const Hero = () => {
 				proceso para garantizarles un hogar confortable y de atractiva rentabilidad.
 			</p>
 			<div className="hero__container-btn" data-aos="fade-up" data-aos-duration="2000">
-				<button className="hero-btn-1">Contacto</button>
-				<button className="hero-btn-2">Ver Mas</button>
+				<Link to="contacto" className="hero-btn hero-btn-1">
+					Contacto
+				</Link>
+				<Link to="desarrollos" className="hero-btn hero-btn-2">
+					Ver Mas
+				</Link>
 			</div>
 
 			<div className="hero__pagination" data-aos="fade-up" data-aos-duration="2500">
@@ -86,7 +91,7 @@ const Hero = () => {
 						onClick={() => handlePaginationClick(image.id)}
 						style={{
 							cursor: 'pointer',
-							opacity: currentSlide === image.id ? 1 : 0.5,
+							opacity: currentSlide === image.id ? 1 : 0.3,
 						}}
 					/>
 				))}
