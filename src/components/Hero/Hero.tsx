@@ -33,6 +33,10 @@ const Hero = () => {
 		setCurrentSlide(id);
 	};
 
+	const handleImageLoad = () => {
+		setFade(true);
+	};
+
 	useEffect(() => {
 		AOS.init({
 			duration: 1000,
@@ -63,6 +67,7 @@ const Hero = () => {
 			<div
 				className={`hero__background ${fade ? 'visible' : ''}`}
 				style={{ backgroundImage: `url(${currentImage})` }}
+				onLoad={handleImageLoad}
 			></div>
 
 			<h1 className="hero__title" data-aos="fade-up" data-aos-duration="1000">
