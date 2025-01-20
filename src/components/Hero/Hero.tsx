@@ -67,16 +67,16 @@ const Hero = () => {
 			<h1 className="hero__title" data-aos="fade-up" data-aos-duration="1000">
 				Desarrollos Inmobiliarios en Buenos Aires
 			</h1>
-			<p className="hero__subtitle" data-aos="fade-up" data-aos-duration="2000">
+			<p className="hero__subtitle" data-aos="fade-up" data-aos-duration="1500">
 				Con una visión realista y funcional, acompañamos a nuestros clientes e inversores en todo el
 				proceso para garantizarles un hogar confortable y de atractiva rentabilidad.
 			</p>
-			<div className="hero__container-btn" data-aos="fade-up" data-aos-duration="3000">
+			<div className="hero__container-btn" data-aos="fade-up" data-aos-duration="2000">
 				<button className="hero-btn-1">Contacto</button>
 				<button className="hero-btn-2">Ver Mas</button>
 			</div>
 
-			<div className="hero__pagination" data-aos="fade-up" data-aos-duration="4000">
+			<div className="hero__pagination" data-aos="fade-up" data-aos-duration="2500">
 				{slide.map((image) => (
 					<img
 						key={image.id}
